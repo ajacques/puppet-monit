@@ -1,6 +1,6 @@
 # Example #
 <pre><code>
-monit::resource::service_monitor {'monit_slapd_srv':
+monit::service_monitor {'monit_slapd_srv':
 	service_name => 'slapd',
 	pid_file => 'slapd.pid',
 	start_path => "/etc/init.d/slapd start",
