@@ -1,10 +1,19 @@
-class monit inherits monit::config {
+class monit {
 	$installed = true
 
 	package { 'monit':
 		ensure => installed,
 	}
 
-	class { 'monit::service': 
+	class {'monit::config':
+		require => Package['monit'],
+		notify => Service['monit']
+	}
+
+	class {'monit::service': 
+		require => [
+			Package['monit'],
+			Class['monit::config']
+		]
 	}
 }
