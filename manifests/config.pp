@@ -13,12 +13,12 @@ class monit::config (
 	}
 	$notify_emails = split($notify_server, ',')
 	if $notify_server != undef {
-		$notify_server = split($notify_server, ':')
+		$notify_server_def = split($notify_server, ':')
 	} else {
-		$notify_server = [undef, undef]
+		$notify_server_def = [undef, undef]
 	}
-	$mail_server_ip = $notify_server[0]
-	$mail_server_port = $notify_server[1]
+	$mail_server_ip = $notify_server_def[0]
+	$mail_server_port = $notify_server_def[1]
 
 	File {
 		owner => 'root',
