@@ -27,7 +27,7 @@ define monit::service_monitor (
 		group => 'root',
 		mode => '0440',
 		content => template('monit/service-monitor.erb'),
-		notify => Class['monit::service'],
+		notify => Exec['reload-monit'],
 		require => $require
 	}
 }

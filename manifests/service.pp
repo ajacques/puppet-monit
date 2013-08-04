@@ -1,6 +1,6 @@
 class monit::service {
 	exec { 'reload-monit':
-		command => "${monit::config::exe_path}",
+		command => "${monit::config::exe_path} reload",
 		refreshonly => true,
 		subscribe => File["${monit::config::servicestub_dir}"],
 	}
@@ -10,7 +10,6 @@ class monit::service {
 		ensure => running,
 		require => File['monitrc'],
 		hasstatus => true,
-		hasrestart => true,
-		subscribe => Exec['reload-monit'],
+		hasrestart => true
 	}
 }
