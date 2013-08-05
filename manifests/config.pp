@@ -11,7 +11,7 @@ class monit::config (
 	$exe_path = $::operatingsystem ? {
 		/(?i-mx:debian|ubuntu)/ => '/usr/bin/env monit'
 	}
-	$notify_emails = split($notify_server, ',')
+	$notify_emails = split($::monit_notify_emails, ',')
 	if $notify_server != undef {
 		$notify_server_def = split($notify_server, ':')
 	} else {
