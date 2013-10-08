@@ -7,7 +7,7 @@ class monit {
 
 	class {'monit::config':
 		require => Package['monit'],
-		notify => Service['monit']
+		notify => Exec['reload-monit']
 	}
 
 	class {'monit::service': 
