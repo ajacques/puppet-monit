@@ -16,4 +16,14 @@ class monit {
 			Class['monit::config']
 		]
 	}
+
+	if defined(Class['logrotate::base']) {
+		logrotate::rule {'logrotate-monit':
+			name => 'monit',
+			path => '/var/log/monit.log',
+			rotate => 5,
+			rotate_every => 'week',
+			postrotate => '/etc/init.d/monit reload 2>&1 >/dev/null'
+		}
+	}
 }

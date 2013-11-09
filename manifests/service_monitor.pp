@@ -7,6 +7,7 @@ define monit::service_monitor (
 	$max_children   = undef,
 	$max_restarts   = undef,
 	$dependencies   = undef,
+	$max_resources	= [],
 	$require        = undef
 ) {
 	if ($service_name == undef) {
