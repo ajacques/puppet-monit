@@ -21,3 +21,4 @@ set httpd port <%= @http_port %> and
     allow localhost
 <% end %>
 include <%= @servicestub_dir  %>/*
+include <%= @config_root %>/custom.d/*
