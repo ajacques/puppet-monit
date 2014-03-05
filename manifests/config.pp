@@ -39,6 +39,7 @@ class monit::config (
 		ensure => "directory",
 		require => File['monitconfigroot'],
 		mode => '0500',
+		recurse => true,
 		purge => true
 	}
 
