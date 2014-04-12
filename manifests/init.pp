@@ -1,4 +1,7 @@
-class monit {
+class monit (
+	$notify_emails = $::monit_notify_emails,
+	$notify_server = $::monit_notify_server
+) {
 	$installed = true
 
 	package { 'monit':
