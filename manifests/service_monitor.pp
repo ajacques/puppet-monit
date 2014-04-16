@@ -19,7 +19,7 @@ define monit::service_monitor (
 	}
 
 	$pid_path = $::operatingsystem ? {
-		/(?i-mx:debian|ubuntu)/ => "/var/run/${pid_file}"
+		/(?i-mx:debian|ubuntu)/ => $pid_file
 	}
 
 	file { "${monit::config::servicestub_dir}/${service_name}":
