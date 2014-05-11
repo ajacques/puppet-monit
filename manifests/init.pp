@@ -9,6 +9,8 @@ class monit (
 	}
 
 	class {'monit::config':
+		notify_emails => $notify_emails,
+		notify_server => $notify_server,
 		require => Package['monit'],
 		notify => Exec['reload-monit']
 	}

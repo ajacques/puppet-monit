@@ -11,8 +11,8 @@ set eventqueue
 <% if @mail_server_ip then %>
 set mailserver <%= @mail_server_ip %> port <%= @mail_server_port %>
 <% end %>
-<% if @notify_emails then
-    @notify_emails.each do |email| %>set alert <%= email %>
+<% if @notify_emails_arr then
+    @notify_emails_arr.each do |email| %>set alert <%= email %>
 <% end
 end %>
 <% if @http_port then %>
