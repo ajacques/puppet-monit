@@ -7,6 +7,7 @@ define monit::service_monitor (
 	$max_children   = undef,
 	$max_restarts   = undef,
 	$dependencies   = undef,
+	$runas_user	= undef,
 	$max_resources	= [],
 	$require        = undef
 ) {
