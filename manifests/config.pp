@@ -40,11 +40,18 @@ class monit::config (
 		purge => true
 	}
 
-	file { 'custom_dir':
+	file {'custom_dir':
 		path => "${monit::config::config_root}/custom.d",
 		ensure => "directory",
 		require => File['monitconfigroot'],
 		mode => '0500',
+	}
+
+	file {"${custom_dir}/.keep":
+		ensure => file,
+		mode => '0400',
+		content => '# Intentionally left blank',
+		require => File['custom_dir']
 	}
 
 	file { 'monitrc':
